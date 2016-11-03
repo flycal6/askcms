@@ -1,4 +1,5 @@
 import os
+
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
@@ -18,7 +19,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -30,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 
@@ -39,10 +38,7 @@ ALLOWED_HOSTS = []
 
 ROOT_URLCONF = 'ask.urls'
 
-
-
 WSGI_APPLICATION = 'ask.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -63,7 +59,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -77,34 +72,32 @@ STATICFILES_DIRS = (
 )
 SITE_ID = 1
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ask', 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'ask', 'templates'), ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'django.core.context_processors.csrf',
-    'django.core.context_processors.tz',
-    'sekizai.context_processors.sekizai',
-    'django.core.context_processors.static',
-    'cms.context_processors.cms_settings'
+                'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.debug',
+                'django.core.context_processors.request',
+                'django.core.context_processors.media',
+                'django.core.context_processors.csrf',
+                'django.core.context_processors.tz',
+                'sekizai.context_processors.sekizai',
+                'django.core.context_processors.static',
+                'cms.context_processors.cms_settings'
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader'
+                'django.template.loaders.app_directories.Loader',
+                'django.template.loaders.eggs.Loader'
             ],
         },
     },
 ]
-
 
 MIDDLEWARE_CLASSES = (
     'cms.middleware.utils.ApphookReloadMiddleware',
@@ -144,10 +137,12 @@ INSTALLED_APPS = (
     'cmsplugin_filer_folder',
     'cmsplugin_filer_image',
     'cmsplugin_filer_utils',
-    'djangocms_style',
+    # 'djangocms_style', replaced with aldryn-style below
     'djangocms_snippet',
     'djangocms_googlemap',
     'djangocms_video',
+    'aldryn_style',
+    'aldryn_bootstrap3',
     'ask'
 )
 
@@ -205,7 +200,7 @@ DATABASES = {
 }
 
 MIGRATION_MODULES = {
-    
+
 }
 
 THUMBNAIL_PROCESSORS = (
@@ -214,3 +209,70 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+CKEDITOR_SETTINGS = {
+    # 'language': '{{ language }}',
+    # 'toolbar': 'CMS',
+    # 'skin': 'moono',
+    #  'toolbar_CMS': [
+    #  ['Undo', 'Redo'],
+    #  ['cmsplugins', '-', 'ShowBlocks'],
+    #  ['Format', 'Styles'],
+    #  ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
+    #  ['Maximize', ''], # '/',
+    #  ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+    #  ['JustifyLeft', 'JustifyCenter', 'JustifyRight'], # ['Link', 'Unlink', 'Anchor'],
+    #  ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'], # ['Source']
+    #  ],
+    #  See: https://github.com/yakupadakli/django_blog/blob/master/ckeditor/ckeditor/styles.js
+    #  for default style definitions.
+    'stylesSet': [
+        {
+            'name': 'Page Header H1',
+            'element': 'h1',
+            'attributes': {
+                'class': 'page-header',
+            }
+        },
+        {
+            'name': 'Page Header H2',
+            'element': 'h2',
+            'attributes': {
+                'class': 'page-header',
+            }
+        },
+        {
+            'name': 'Page Header H3',
+            'element': 'h3',
+            'attributes': {
+                'class': 'page-header',
+            }
+        },
+        {
+            'name': 'Code',
+            'element': 'code',
+        },
+        {
+            'name': 'Code Block',
+            'element': 'pre',
+            'attributes': {
+                'class': 'code',
+            }
+        },
+        {
+            'name': 'subheading',
+            'element': 'small',
+        },
+        {
+            'name': 'Block Quote',
+            'element': 'blockquote',
+        },
+        {
+            'name': 'Lead',
+            'element': 'span',
+            'attributes': {
+                'class': 'lead',
+            }
+        }
+    ]
+}
