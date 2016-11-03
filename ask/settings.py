@@ -149,6 +149,7 @@ INSTALLED_APPS = (
 LANGUAGES = (
     ## Customize this
     ('en', gettext('en')),
+    ('es', gettext('es')),
     ('ar', gettext('ar')),
 )
 
@@ -165,6 +166,13 @@ CMS_LANGUAGES = {
             'code': 'en',
             'hide_untranslated': False,
             'name': gettext('en'),
+            'redirect_on_fallback': True,
+        },
+        {
+            'public': True,
+            'code': 'es',
+            'hide_untranslated': False,
+            'name': gettext('es'),
             'redirect_on_fallback': True,
         },
         {
@@ -219,7 +227,8 @@ CKEDITOR_SETTINGS = {
     #  ['cmsplugins', '-', 'ShowBlocks'],
     #  ['Format', 'Styles'],
     #  ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord'],
-    #  ['Maximize', ''], # '/',
+    #  ['Maximize', ''],
+    #  '/',
     #  ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
     #  ['JustifyLeft', 'JustifyCenter', 'JustifyRight'], # ['Link', 'Unlink', 'Anchor'],
     #  ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'], # ['Source']
