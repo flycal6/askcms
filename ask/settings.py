@@ -273,6 +273,20 @@ CKEDITOR_SETTINGS = {
             'attributes': {
                 'class': 'lead',
             }
+        },
+        {
+            'name': 'Pull Right',
+            'element': 'span',
+            'attributes': {
+                'class': 'pull-right',
+            }
+        },
+        {
+            'name': 'Pull Left',
+            'element': 'span',
+            'attributes': {
+                'class': 'pull-left',
+            }
         }
     ]
 }
