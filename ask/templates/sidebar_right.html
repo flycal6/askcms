@@ -1,16 +1,13 @@
-{% extends "base.html" %}
+{% extends "base-old.html" %}
 {% load cms_tags %}
 
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
 {% block content %}
-    <div class="jumbotron">
-        {% placeholder "feature" %}
-    </div>
-    <div>
+    <div class="content">
         {% placeholder "content" %}
     </div>
-    <div>
-        {% placeholder "splashbox" %}
+    <div class="sidebar">
+        {% placeholder "sidebar" %}
     </div>
 {% endblock content %}
