@@ -17,8 +17,12 @@
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
+    {% block more_css %}{% endblock %}
+
     <!-- Custom CSS -->
     <link href="{% static 'css/modern-business.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Abel">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
 
     <!-- Custom Fonts -->
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
@@ -47,6 +51,10 @@
     .nav >li >a {
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+    .nav li {
+        font-family: "Abel", sans-serif;
+        font-size: 1.2em;
     }
     .navbar-toggle {
         padding: 10px;
